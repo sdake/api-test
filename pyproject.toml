@@ -11,4 +11,4 @@ dependencies = [
 ]
 
 [project.scripts]
-api = [api:root]
+api = "api:root"
