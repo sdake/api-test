@@ -1,3 +1,7 @@
+# deployed on oraclecloud.com with `nlb`
+# 
+# sdake@wise-00:~/work/api-test/kubernetes$ curl 129.153.64.58:80
+# {"model_names":["ibm-granite/granite-34b-code-instruct","ibm-granite/granite-34b-code"]}
 ---
 apiVersion: v1
 kind: Service
@@ -9,7 +13,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app.kubernetes.io/name: models
+    app: models
   ports:
     - protocol: TCP
       port: 80
@@ -33,6 +37,6 @@ spec:
     spec:
       containers:
       - name: models
-        image: docker.io/sdake/test-api:v0.1.0
+        image: docker.io/sdake/test-api:v0.1.1
         ports:
         - containerPort: 8080
