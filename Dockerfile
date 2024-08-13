@@ -11,7 +11,6 @@ ENV PYTHON="${VENV_PATH}/bin/python"
 ENV PIP="${VENV_PATH}/bin/pip"
 
 RUN git clone https://github.com/sdake/api-test /source
-RUN ls -lR /source
 
 WORKDIR /source
 RUN python3 -m venv /source/v-env
@@ -19,8 +18,7 @@ RUN ls -lR /source/v-env
 
 RUN ${PIP} install wheel
 RUN ${PIP} install build
-RUN ${PIP} install flit
-RUN ls -lR /source
+RUN ${PIP} install setuptools
 RUN ${PYTHON} -m build --wheel --no-isolation
 
 RUN ${PIP} install dist/*.whl
