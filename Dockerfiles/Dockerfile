@@ -26,4 +26,4 @@ RUN ${PIP} install "fastapi[standard]"
 RUN ${PIP} install . 
 
 #CMD "${PYTHON}", "fastapi", "dev", "api.py" ]
-CMD "${PYTHON}" "${VENV_PATH}/bin/fastapi" "dev" "api.py"
+CMD "${PYTHON}" "${VENV_PATH}/bin/fastapi" "dev" "api.py" "--host" "0.0.0.0" "--port" "8080"
