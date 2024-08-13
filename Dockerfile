@@ -14,14 +14,16 @@ RUN git clone https://github.com/sdake/api-test /source
 
 WORKDIR /source
 RUN python3 -m venv /source/v-env
-RUN ls -lR /source/v-env
+ENV PATH=$PATH:/source/v-env/bin
 
 RUN ${PIP} install wheel
 RUN ${PIP} install build
 RUN ${PIP} install setuptools
 RUN ${PIP} install "fastapi[standard]"
 
+
 #RUN ${PYTHON} -m build --wheel --no-isolation
 RUN ${PIP} install . 
 
-CMD ] "${PYTHON}", "fastapi", "dev", "api.py" ]
+#CMD "${PYTHON}", "fastapi", "dev", "api.py" ]
+CMD "${PYTHON}" "${VENV_PATH}/bin/fastapi" "dev" "api.py"
