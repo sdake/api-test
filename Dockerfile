@@ -19,8 +19,9 @@ RUN ls -lR /source/v-env
 RUN ${PIP} install wheel
 RUN ${PIP} install build
 RUN ${PIP} install setuptools
-RUN ${PYTHON} -m build --wheel --no-isolation
+RUN ${PIP} install "fastapi[standard]"
 
-RUN ${PIP} install dist/*.whl
+#RUN ${PYTHON} -m build --wheel --no-isolation
+RUN ${PIP} install . 
 
-CMD [ "${VENV}/python api.py" ]
+CMD ] "${PYTHON}", "fastapi", "dev", "api.py" ]
