@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "api-test"
+author = "Steve Dake"
+author-email = "steve@computelify.com"
+home-page = "https://github.com/johndoe/my_package"
+description-file = "README.md"
+requires = ["fastapi"]
+
+[tool.flit.metadata.urls]
+Documentation = "https://my_package.readthedocs.io"
+Source = "https://github.coms/sdake/api-test"
+
+[tool.flit.metadata.entry-points."console_scripts"]
+my_script = "my_package.scripts:main"
+
+[tool.flit.metadata.project-urls]
+"Bug Tracker" = "https://github.com/sdake/api-test/issues"
+"Source Code" = "https://github.com/sdake/api-test"
